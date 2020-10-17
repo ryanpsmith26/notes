@@ -1,5 +1,15 @@
 # Git / GitHub
 
+#### If .gitignored files were already pushed:
+```zsh
+git rm -rf --cached .
+```
+
+* * *
+
+<details>
+<summary>Archive</summary>
+
 ## **Setting up a new project**:
 
 Once in your project folder you can run **git init** to initialize:
@@ -96,3 +106,4 @@ Delete the now-irrelevant feature branch:
 To change an existing branch name (make sure you're on that branch first then):
 
 ```git branch -m "new-name" ```
+</details>
