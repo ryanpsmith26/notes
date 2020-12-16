@@ -151,6 +151,42 @@ const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
 console.log(a, b); // 1, 2
 console.log(arr); // [3, 4, 5, 7]
 ```
+
+#### MIXED EXAMPLE
+```js
+function nestedArrayAndObject() {
+	const info = {
+		title: 'Once Upon a Time',
+		protagonist: {
+			name: 'Emma Swan',
+			enemies: [
+				{ name: 'Regina Mills', title: 'Evil Queen' },
+				{ name: 'Cora Mills', title: 'Queen of Hearts' },
+				{ name: 'Peter Pan', title: `The boy who wouldn't grow up` },
+				{ name: 'Zelena', title: 'The Wicked Witch' }
+			]
+		}
+	};
+
+	// original assignment:
+	// const title = info.title;
+	// const protagonistName = info.protagonist.name;
+	// const enemy = info.protagonist.enemies[3];
+	// const enemyTitle = enemy.title;
+	// const enemyName = enemy.name;
+
+	// refactored w/ destructuring assignment:
+	const {
+		title,
+		protagonist: { name: protagonistName },
+		protagonist: { enemies: [ , , , { name: enemyName, title: enemyTitle } ] }
+	} = info;
+
+	return `${enemyName} (${enemyTitle}) is an enemy to ${protagonistName} in "${title}"`;
+}
+
+console.log(nestedArrayAndObject()); // Zelena (The Wicked Witch) is an enemy to Emma Swan in "Once Upon a Time"
+```
 * * *
 
 ### **MISC**
